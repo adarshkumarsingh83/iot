@@ -14,13 +14,13 @@ server:
 
 # Custom property mqtt configuration
 mqtt-properties:
-  host: tcp://localhost:1883                                       # mqtt host with port
-  clientId: espark-adarsh-                                         # client id for mqtt
-  username: adarsh                                                 # username for the mqtt
-  password: password                                               # user password for the mqtt
-  topicSub: /espark/adarsh/#                                       # top level topic name with regex
-  topicPublish: /espark/adarsh/data                                # top level topic name with regex
-  errorTopic: /amt/errors                                          # jrmi error message topic name
+  host: tcp://localhost:1883                                         # mqtt host with port
+  clientId: espark-adarsh-                                           # client id for mqtt
+  username: adarsh                                                   # username for the mqtt
+  password: password                                                  # user password for the mqtt
+  topicSub: /espark/adarsh/data                                       # top level topic name with regex
+  topicPublish: /espark/adarsh/publish                                # top level topic name with regex
+  errorTopic: /amt/errors                                             # jrmi error message topic name
   cleanSession: true
   connectionTimeout: 300
   keepAliveInterval: 60

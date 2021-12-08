@@ -32,7 +32,7 @@ public class ApplicationMqttService {
     public void transformData(String mqttTopic, String message) throws Exception {
         log.debug("Mqtt transformData mqttTopic = {} with message = {} ", mqttTopic, message);
         Thread.currentThread().sleep(1000);
-        message = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
+        message = message + new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
         this.publish(properties.getTopicPublish(), message, 1, false);
     }
 
