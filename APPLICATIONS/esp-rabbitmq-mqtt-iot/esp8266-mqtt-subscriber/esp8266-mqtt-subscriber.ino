@@ -43,7 +43,7 @@ String getMessage(byte* message, unsigned int length) {
 bool mqttConnect() {
   // Connect to MQTT Server and subscribe to the topic
   if (client.connect(CLIENT_ID, MQTT_USER, MQTT_PWD)) {
-    client.subscribe(JMRI_MQTT_TOPIC);
+    client.subscribe(MQTT_TOPIC);
     return true;
   } else {
     return false;

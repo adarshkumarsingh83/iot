@@ -2,10 +2,6 @@
 
 ---
 
-![img](../../../image/dig5.png)
-![img](../../../image/dig6.png)
-
-
 ## Lib installtion 
 
 ### search for "ESP8266WiFi" lib and install it before compiling 
@@ -28,13 +24,13 @@
 > mqtt topics will be configured in Config.h 
 ```
 // change the node "number/name"  based on the node default is 1 in this 
-#define JMRI_MQTT_TOPIC "/amt/node/1/#"
+#define MQTT_TOPIC "/espark/adarsh/publisher/#"
 ```
 
 > esp client id is configure in Config.h 
 ```
 // change the node "number/name"  based on the node
-#define CLIENT_ID "JMRI_SUBSCRIBER_NODE_ESP8266_1"
+#define CLIENT_ID "ESPARK_SUBSCRIBER_NODE_ESP8266_1"
 ```
 
 

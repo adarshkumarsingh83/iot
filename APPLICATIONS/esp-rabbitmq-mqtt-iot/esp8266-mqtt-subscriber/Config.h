@@ -28,7 +28,7 @@
 #define  MQTT_PWD "password"
 
 // change the node "number/name"  based on the node default is 1 in this
-#define JMRI_MQTT_TOPIC "/espark/adarsh/publisher"
+#define MQTT_TOPIC "/espark/adarsh/publisher"
 
 // change the node "number/name"  based on the node
 #define CLIENT_ID "ESPARK_SUBSCRIBER_NODE_ESP8266_1"
