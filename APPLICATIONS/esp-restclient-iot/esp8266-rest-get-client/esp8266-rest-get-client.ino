@@ -8,8 +8,9 @@
 String payload = "";
 String serverResponse;
 int httpResponseCode;
-WiFiClient client;
+
 HTTPClient http;
+WiFiClient client;
 ESP8266WiFiMulti WiFiMulti;
 
 void setup() {
@@ -27,32 +28,34 @@ void setup() {
   Serial.print(WiFi.SSID());
   Serial.print(" ");
   Serial.println(WiFi.localIP());
+
+  // Your IP address with path or Domain name with URL path
+  http.begin(client, SERVER_URL);
 }
 
 void loop() {
   if ((WiFiMulti.run() == WL_CONNECTED)) {
-    serverResponse = httpGETRequest(SERVER_URL);
-    // todo with the server response
+    serverResponse = httpGETRequest();
     if (serverResponse != "") {
       pushDataToSlave(serverResponse);
       delay(DELAY_TIME);
       serverResponse = "";
     }
-
   } else {
     Serial.println("NOT CONNECTED TO WIFI ");
   }
 }
 
-String httpGETRequest(const char* serverName) {
-  // Your IP address with path or Domain name with URL path
-  http.begin(client, serverName);
+String httpGETRequest() {
+
   // Send HTTP POST request
   httpResponseCode = http.GET();
   payload = "";
   if (httpResponseCode > 0) {
     //Serial.println("HTTP Response code: " + String(httpResponseCode));
     payload = http.getString();
+  }  else if (httpResponseCode == -1) {
+    Serial.println("ERROR SERVER NOT REACHABLE: " + String(httpResponseCode));
   } else {
     Serial.println("ERROR CODE: " + String(httpResponseCode));
   }

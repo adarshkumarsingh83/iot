@@ -17,8 +17,6 @@ import java.util.Map;
 @RestController
 public class ApplicationController {
 
-    private static final String PROCESSED_FAILED = "PROCESSED-FAILED";
-
     @Autowired
     ApplicationService applicationService;
 
@@ -28,7 +26,7 @@ public class ApplicationController {
     }
 
     @PostMapping("/api/espark")
-    public String postWish(@RequestBody Map<String,String> data) throws Exception {
-        return this.applicationService.puttMessage( data);
+    public String postWish(@RequestBody Map<String, String> data) {
+        return this.applicationService.puttMessage(data);
     }
 }
